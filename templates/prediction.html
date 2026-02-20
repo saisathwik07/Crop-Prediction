@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">🌱 Crop Prediction</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Get AI-powered crop recommendations based on soil and climate conditions
+</p>
+
+<div class="card">
+    <h3>Environmental Conditions</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Enter soil and climate parameters</p>
+    
+    <div class="grid">
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Nitrogen (N) - kg/ha</label>
+            <input type="number" placeholder="0.0" id="N">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Phosphorus (P) - kg/ha</label>
+            <input type="number" placeholder="0.0" id="P">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Potassium (K) - kg/ha</label>
+            <input type="number" placeholder="0.0" id="K">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Temperature - °C</label>
+            <input type="number" placeholder="0.0" id="temperature">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Humidity - %</label>
+            <input type="number" placeholder="0.0" id="humidity">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Soil pH</label>
+            <input type="number" placeholder="0.0" id="ph">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Micronutrients</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Optional - Trace element levels (ppm)</p>
+    
+    <div class="grid">
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Iron (Fe)</label>
+            <input type="number" placeholder="0.0" id="Iron">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Zinc (Zn)</label>
+            <input type="number" placeholder="0.0" id="Zinc">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Copper (Cu)</label>
+            <input type="number" placeholder="0.0" id="Copper">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Boron (B)</label>
+            <input type="number" placeholder="0.0" id="Boron">
+        </div>
+    </div>
+    
+    <button type="button" onclick="fullPredict()" style="width: 100%; margin-top: 24px; margin-right: 0;">Get Recommendations</button>
+</div>
+
+<div class="card">
+    <h3>Prediction Results</h3>
+    <div id="fullResult" style="min-height: 100px;"></div>
+</div>
+
+{% endblock %}
